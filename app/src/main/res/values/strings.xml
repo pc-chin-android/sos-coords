@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">SosCoords</string>
+
+    <!-- -->
+    <string name="placeholder_temp_code"/>
+
+    <!-- Main Menu strings -->
+    <string name="main_menu_title_text">SOS Coordinates Sender</string>
+    <string name="main_menu_top_button">Enter Secret Code</string>
+    <string name="main_menu_top_button_content">Current: </string>
+    <string name="main_menu_bottom_button">Select Contacts</string>
+    <string name="main_menu_bottom_button_content">Current:</string>
+    <string name="main_menu_top_check">Activate when code sent</string>
+    <string name="main_menu_bottom_check">Activate when code received</string>
+    <string name="main_menu_about_button">About</string>
+
+    <!-- About Menu strings -->
+    <string name="about_menu_button">&lt; Return</string>
+    <string name="about_menu_text">
+        <b> Auto SOS Coordinates Sender
+        &#xA;&#xD; Version 0.4
+        &#xA;&#xD; Made by PC Chin </b>
+        &#xA;&#xD;&#xA;&#xD; By sending a specific code to a specific person or vice versa,
+        that person would be able to receive your current GPS coordinates.
+    </string>
+
+    <!-- Code Input strings -->
+    <string name="code_menu_left_button">&lt; Cancel</string>
+    <string name="code_menu_right_button">Save &#38; Return &gt;</string>
+    <string name="code_menu_top_text">Enter Secret Code</string>
+    <string name="code_menu_bottom_text"/>
+
+    <!-- Contact List strings -->
+</resources>
