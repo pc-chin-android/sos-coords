@@ -50,7 +50,7 @@
         android:text="@string/code_menu_top_text"
         android:textSize="24sp" />
 
-    <!-- FIXME: Dk what error this is-->
+    <!-- TODO: This widget depends on storeInfo and readInfo -->
     <EditText
         android:id="@+id/codeMenuEditText"
         android:layout_width="match_parent"
