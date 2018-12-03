@@ -11,7 +11,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/codeMenuLeftButton"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -26,7 +26,7 @@
             android:layout_weight="1" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/codeMenuRightButton"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -38,11 +38,11 @@
     <View
         android:id="@+id/divider"
         android:layout_width="match_parent"
-        android:layout_height="5dp"
+        android:layout_height="3dp"
         android:background="#FFFFFF" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/codeMenuTopText"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight=".1"
@@ -52,17 +52,17 @@
 
     <!-- FIXME: Dk what error this is-->
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/codeMenuEditText"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight=".15"
-        android:background="#FFFFF"
+        android:background="#FFFFFF"
         android:ems="10"
         android:inputType="text|textNoSuggestions"
         android:text="@string/placeholder_temp_code" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/codeMenuBottomText"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight=".05"
