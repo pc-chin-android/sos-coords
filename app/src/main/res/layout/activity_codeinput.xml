@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- TODO: Make the buttons work -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
@@ -15,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#000000"
+            android:background="@android:color/black"
             android:text="@string/code_menu_left_button"
             android:textSize="20sp"
             tools:ignore="NestedWeights" />
@@ -30,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#000000"
+            android:background="@android:color/black"
             android:text="@string/code_menu_right_button"
             android:textSize="20sp" />
     </LinearLayout>
@@ -56,7 +57,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight=".15"
-        android:background="#FFFFFF"
+        android:background="@android:color/white"
         android:ems="10"
         android:inputType="text|textNoSuggestions"
         android:text="@string/placeholder_temp_code" />

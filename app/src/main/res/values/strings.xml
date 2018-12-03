@@ -2,7 +2,7 @@
     <string name="app_name">SosCoords</string>
 
     <!-- -->
-    <string name="placeholder_temp_code"/>
+    <string name="placeholder_temp_code" />
 
     <!-- Main Menu strings -->
     <string name="main_menu_title_text">SOS Coordinates Sender</string>
@@ -28,7 +28,7 @@
     <string name="code_menu_left_button">&lt; Cancel</string>
     <string name="code_menu_right_button">Save &#38; Return &gt;</string>
     <string name="code_menu_top_text">Enter Secret Code</string>
-    <string name="code_menu_bottom_text"/>
+    <string name="code_menu_bottom_text" />
 
     <!-- Contact List strings -->
 </resources>
