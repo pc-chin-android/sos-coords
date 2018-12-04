@@ -1,7 +1,10 @@
 package com.pcchin.soscoords;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 public class AboutActivity extends AppCompatActivity {
 
@@ -9,7 +12,15 @@ public class AboutActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
-    }
 
-    // TODO: Make functions for AboutActivity
+        // Binding button to return to main menu
+        Button aboutButton = findViewById(R.id.aboutMenuButton);
+        aboutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent switchLayout = new Intent(AboutActivity.this, MainActivity.class);
+                startActivity(switchLayout);
+            }
+        } );
+    }
 }

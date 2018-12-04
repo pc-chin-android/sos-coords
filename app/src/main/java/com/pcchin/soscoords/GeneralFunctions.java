@@ -1,27 +1,17 @@
 package com.pcchin.soscoords;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class GeneralFunctions {
-    // TODO: Complete function to switch layouts
-    private void switchLayout(String target) {
-        switch(target) {
-            case "main":
-                break;
-            case "about":
-                break;
-            case "code":
-                break;
-            case "contactlist":
-                break;
-        }
+    // TODO: Complete function to store info
+    public static void setInfo(String name, String value) {
+        // General setter
     }
 
-    // TODO: Complete function to store info
-    public void storeInfo(String name, String value) { }
-
     // TODO: Complete function to read info
-    public <T> ArrayList<T> readInfo(String name) {
+    public static <T> List<T> getInfo(String name) {
+        // General getter
         ArrayList<T> response = new ArrayList<>();
         return response;
     }
