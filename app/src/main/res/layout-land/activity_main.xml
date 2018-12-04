@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:clickable="false" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".6"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            tools:ignore="NestedWeights">
+
+            <Button
+                android:id="@+id/mainMenuTopButton"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_weight=".6"
+                android:background="#616161"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="@string/main_menu_top_button"
+                android:textAllCaps="false"
+                android:textSize="24sp"
+                tools:ignore="NestedWeights" />
+
+            <TextView
+                android:id="@+id/mainMenuTopButtonContent"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight=".4"
+                android:gravity="top|center"
+                android:text="@string/main_menu_top_button_content"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/mainMenuBottomButton"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_weight=".6"
+                android:background="#616161"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="@string/main_menu_bottom_button"
+                android:textAllCaps="false"
+                android:textSize="24sp"
+                tools:ignore="NestedWeights" />
+
+            <TextView
+                android:id="@+id/mainMenuBottomButtonContent"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight=".4"
+                android:gravity="center"
+                android:text="@string/main_menu_bottom_button_content"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+    <CheckBox
+        android:id="@+id/mainMenuTopCheck"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_weight=".15"
+        android:checked="true"
+        android:gravity="center"
+        android:text="@string/main_menu_top_check"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:buttonTint="@android:color/holo_blue_light" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+    <CheckBox
+        android:id="@+id/mainMenuBottomCheck"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_weight=".15"
+        android:checked="true"
+        android:gravity="center"
+        android:text="@string/main_menu_bottom_check"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:buttonTint="@android:color/holo_blue_light" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        android:orientation="horizontal">
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".4"
+            tools:ignore="NestedWeights" />
+
+        <Button
+            android:id="@+id/mainMenuAboutButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".2"
+            android:background="@android:color/black"
+            android:gravity="center"
+            android:text="@string/main_menu_about_button"
+            android:textColor="@android:color/holo_blue_dark" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".4" />
+    </LinearLayout>
+
+</LinearLayout>
