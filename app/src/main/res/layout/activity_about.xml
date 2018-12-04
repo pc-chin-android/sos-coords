@@ -16,7 +16,6 @@
             android:layout_height="match_parent"
             android:layout_weight=".3"
             android:background="@android:color/black"
-            android:onClick="switchLayout"
             android:text="@string/about_menu_button"
             android:textSize="20sp"
             tools:ignore="NestedWeights" />
