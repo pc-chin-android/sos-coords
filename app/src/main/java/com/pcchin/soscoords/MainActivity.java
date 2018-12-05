@@ -1,16 +1,13 @@
 package com.pcchin.soscoords;
 
-import android.arch.persistence.room.Room;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-
-import com.pcchin.soscoords.Checkbox.CheckboxDatabase;
-
-import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,6 +15,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Import checkbox and code status
+        SharedPreferences appKeys = this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor appKeysEditor = appKeys.edit();
 
 
         // ****** BUTTON BINDING ****** //
@@ -53,26 +54,59 @@ public class MainActivity extends AppCompatActivity {
         } );
 
 
-        // ****** UPDATE CHECKBOXES ****** //
+        // ****** BIND CHECKBOXES ****** //
 
-        // Import table from existing one
-        CheckboxDatabase chk = Room.databaseBuilder(getApplicationContext(), CheckboxDatabase.class, "checkbox-status").build();
-        // Default table if nonexistent
-        if(Objects.equals(chk.checkboxDao().checkDatabaseLen(), 0)) {
-            chk.checkboxDao().addCheckboxState(true);
-            chk.checkboxDao().addCheckboxState(true);
+        // Check if value for top checkbox exists
+        int sendCheckboxState = appKeys.getInt(getString(R.string.send_checkbox_checked), -1);
+        if (appKeys.contains(getString(R.string.send_checkbox_checked))) {
+            CheckBox check1 = findViewById(R.id.mainMenuTopCheck);
+            check1.setChecked(sendCheckboxState != 0); // Convert int to bool
+        } else {
+            // Set default value
+            appKeysEditor.putInt(getString(R.string.send_checkbox_checked), 1);
+            appKeysEditor.apply();
+            CheckBox check1 = findViewById(R.id.mainMenuTopCheck);
+            check1.setChecked(true); // Convert int to bool
         }
-        // Update checkbox states
-        CheckBox sendCheck = findViewById(R.id.mainMenuTopCheck);
-        sendCheck.setChecked(chk.checkboxDao().getCheckboxState(0));
-        CheckBox receiveCheck = findViewById(R.id.mainMenuBottomCheck);
-        receiveCheck.setChecked(chk.checkboxDao().getCheckboxState(1));
+        // Check if value for bottom checkbox exists
+        int receiveCheckboxState = appKeys.getInt(getString(R.string.receive_checkbox_checked), -1);
+        if (appKeys.contains(getString(R.string.receive_checkbox_checked))) {
+            CheckBox check2 = findViewById(R.id.mainMenuBottomCheck);
+            check2.setChecked(receiveCheckboxState != 0); // Convert int to bool
+        } else {
+            // Set default value
+            appKeysEditor.putInt(getString(R.string.receive_checkbox_checked), 1);
+            appKeysEditor.apply();
+            CheckBox check2 = findViewById(R.id.mainMenuBottomCheck);
+            check2.setChecked(true); // Convert int to bool
+        }
 
 
         // ****** UPDATE CODE ****** //
         // TODO: Update secret code
 
+
         // ****** UPDATE CONTACT LIST ****** //
         // TODO: Update contact list
+    }
+
+    // Update the status of the checkboxes to their corresponding values
+    public void updateCheckboxDatabase(View view) {
+        // Import checkbox and code status
+        SharedPreferences appKeys = this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor appKeysEditor = appKeys.edit();
+        switch (view.getId()) {
+            case R.id.mainMenuTopCheck:
+                CheckBox check1 = findViewById(R.id.mainMenuTopCheck);
+                int checked1 = check1.isChecked() ? 1 : 0; // Convert int to bool
+                appKeysEditor.putInt(getString(R.string.send_checkbox_checked), checked1);
+                appKeysEditor.apply();
+            case R.id.mainMenuBottomCheck:
+                CheckBox check2 = findViewById(R.id.mainMenuBottomCheck);
+                int checked2 = check2.isChecked() ? 1 : 0; // Convert int to bool
+                appKeysEditor.putInt(getString(R.string.receive_checkbox_checked), checked2);
+                appKeysEditor.apply();
+        }
+
     }
 }

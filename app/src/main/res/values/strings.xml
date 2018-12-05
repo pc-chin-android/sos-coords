@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">SosCoords</string>
+    <string name="placeholder_temp_code">None</string>
 
-    <!-- -->
-    <string name="placeholder_temp_code" />
+    <!-- Shared preferences keys -->
+    <string name="send_checkbox_checked">send_checkbox_checked</string>
+    <string name="receive_checkbox_checked">receive_checkbox_checked</string>
 
     <!-- Main Menu strings -->
     <string name="main_menu_title_text">SOS Coordinates Sender</string>
