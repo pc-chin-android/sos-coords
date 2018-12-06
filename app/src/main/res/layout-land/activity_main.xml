@@ -47,7 +47,6 @@
                 android:layout_height="0dp"
                 android:layout_weight=".4"
                 android:gravity="top|center"
-                android:text="@string/main_menu_top_button_content"
                 android:textSize="18sp" />
         </LinearLayout>
 
@@ -78,7 +77,6 @@
                 android:layout_height="0dp"
                 android:layout_weight=".4"
                 android:gravity="center"
-                android:text="@string/main_menu_bottom_button_content"
                 android:textSize="18sp" />
         </LinearLayout>
 

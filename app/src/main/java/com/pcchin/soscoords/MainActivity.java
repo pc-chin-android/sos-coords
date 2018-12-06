@@ -8,6 +8,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.TextView;
+
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Import checkbox and code status
-        SharedPreferences appKeys = this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences appKeys = this.getSharedPreferences(getString(R.string.shared_pref_key), Context.MODE_PRIVATE);
         SharedPreferences.Editor appKeysEditor = appKeys.edit();
 
 
@@ -83,7 +86,17 @@ public class MainActivity extends AppCompatActivity {
 
 
         // ****** UPDATE CODE ****** //
-        // TODO: Update secret code
+        String currentCode = appKeys.getString(getString(R.string.secret_code_input), null);
+        TextView codeText = findViewById(R.id.mainMenuTopButtonContent);
+        // Check if default value exists
+        if (! Objects.equals(currentCode, null)) {
+            // Set values
+            String contents = getString(R.string.main_menu_top_button_content, currentCode);
+            codeText.setText(contents);
+        } else {
+            //Set default value
+            codeText.setText(R.string.current_placeholder);
+        }
 
 
         // ****** UPDATE CONTACT LIST ****** //
@@ -93,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
     // Update the status of the checkboxes to their corresponding values
     public void updateCheckboxDatabase(View view) {
         // Import checkbox and code status
-        SharedPreferences appKeys = this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences appKeys = this.getSharedPreferences(getString(R.string.shared_pref_key), Context.MODE_PRIVATE);
         SharedPreferences.Editor appKeysEditor = appKeys.edit();
         switch (view.getId()) {
             case R.id.mainMenuTopCheck:

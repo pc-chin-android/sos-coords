@@ -1,17 +1,19 @@
 <resources>
     <string name="app_name">SosCoords</string>
-    <string name="placeholder_temp_code">None</string>
+    <string name="current_placeholder">Current: </string>
+    <string name="shared_pref_key">com.pcchin.soscoords.shared_pref_key</string>
+    <string name="blank" />
 
     <!-- Shared preferences keys -->
     <string name="send_checkbox_checked">send_checkbox_checked</string>
     <string name="receive_checkbox_checked">receive_checkbox_checked</string>
+    <string name="secret_code_input">secret_code_input</string>
 
     <!-- Main Menu strings -->
     <string name="main_menu_title_text">SOS Coordinates Sender</string>
     <string name="main_menu_top_button">Enter Secret Code</string>
-    <string name="main_menu_top_button_content">Current: </string>
+    <string name="main_menu_top_button_content">Current: %1$s</string>
     <string name="main_menu_bottom_button">Select Contacts</string>
-    <string name="main_menu_bottom_button_content">Current:</string>
     <string name="main_menu_top_check">Activate when code sent</string>
     <string name="main_menu_bottom_check">Activate when code received</string>
     <string name="main_menu_about_button">About</string>
