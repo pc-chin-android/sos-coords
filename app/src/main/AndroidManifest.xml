@@ -20,8 +20,6 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
 
-        <!-- TODO: Add android.intent.action for all screens -->
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

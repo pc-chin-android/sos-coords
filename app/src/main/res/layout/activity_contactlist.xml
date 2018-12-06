@@ -39,9 +39,22 @@
     <View
         android:id="@+id/divider2"
         android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:layout_weight="1"
+        android:layout_height="0dp"
+        android:layout_weight="0.01"
         android:background="@android:color/white"
         tools:ignore="InefficientWeight" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".89">
+
+        <LinearLayout
+            android:id="@+id/contactlistbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="UselessLeaf" />
+    </ScrollView>
 
 </LinearLayout>

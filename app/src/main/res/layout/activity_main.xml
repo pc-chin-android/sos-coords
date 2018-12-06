@@ -75,7 +75,6 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_weight=".1"
-        android:checked="true"
         android:gravity="center"
         android:onClick="updateCheckboxDatabase"
         android:text="@string/main_menu_top_check"
@@ -94,13 +93,12 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_weight=".1"
-        android:checked="true"
         android:gravity="center"
         android:onClick="updateCheckboxDatabase"
         android:text="@string/main_menu_bottom_check"
         android:textColor="@android:color/white"
-        app:buttonTint="@android:color/holo_blue_light"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        app:buttonTint="@android:color/holo_blue_light" />
 
     <Space
         android:layout_width="match_parent"
