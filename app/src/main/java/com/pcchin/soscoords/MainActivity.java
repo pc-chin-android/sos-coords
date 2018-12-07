@@ -1,6 +1,7 @@
 package com.pcchin.soscoords;
 // TODO: Start on background process
 
+import android.arch.persistence.room.Room;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,6 +12,9 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
+import com.pcchin.soscoords.contactlist.ContactListDatabase;
+
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
@@ -99,9 +103,33 @@ public class MainActivity extends AppCompatActivity {
             codeText.setText(R.string.current_placeholder);
         }
 
-
+        // FIXME FIXME
         // ****** UPDATE CONTACT LIST ****** //
-        // TODO: Update contact list
+        // Initialize id of contacts needed to be shown and reference array for id to name
+        ContactListDatabase contactListDatabase = Room.databaseBuilder(this, ContactListDatabase.class, "current_contact_list").build();
+        ArrayList<String> contactsDisplay = contactListDatabase.daoAccess().getAllContactsId();
+        ArrayList<ArrayList<String>> contactsReference = GeneralFunctions.getContactNames(this);
+        // FIXME FIXME
+        StringBuilder displayText = new StringBuilder(getString(R.string.current_placeholder));
+        TextView mainMenuBottomText = findViewById(R.id.mainMenuBottomButtonContent);
+        // Check name array with id to find name
+        for (int i=0; i< (contactsDisplay.size()-1); i++) {
+            for (int j=0; j < contactsReference.size(); j++) {
+                // Check if id is the same
+                if (Objects.equals(contactsReference.get(j).get(0), contactsDisplay.get(i))) {
+                    displayText.append(" ").append(contactsReference.get(j).get(1)).append(",");
+                    // Deletes element from array, makes searching faster
+                    contactsReference.remove(j);
+                    break;
+                }
+            }
+        }
+        // Set the last value of the name array to be without a comma
+        if (contactsDisplay.size() != 0) {
+            displayText.append(" ").append(contactsDisplay.get(contactsDisplay.size() - 1));}
+        // Set title
+        mainMenuBottomText.setText(displayText.toString());
+
     }
 
     // Update the status of the checkboxes to their corresponding values

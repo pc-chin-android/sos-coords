@@ -1,8 +1,8 @@
 package com.pcchin.soscoords;
 
-import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 
-public class NameComparator implements Comparator<ArrayList<String>> {
-    public int compare(ArrayList<String> a, ArrayList<String> b) { return a.get(1).compareTo(b.get(1)); }
+public class NameComparator implements Comparator<List<String>> {
+    public int compare(List<String> a, List<String> b) { return a.get(1).compareTo(b.get(1)); }
 }
