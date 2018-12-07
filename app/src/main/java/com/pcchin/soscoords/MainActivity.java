@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.pcchin.soscoords.contactlist.ContactListDatabase;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
@@ -103,32 +103,36 @@ public class MainActivity extends AppCompatActivity {
             codeText.setText(R.string.current_placeholder);
         }
 
-        // FIXME FIXME
-        // ****** UPDATE CONTACT LIST ****** //
-        // Initialize id of contacts needed to be shown and reference array for id to name
-        ContactListDatabase contactListDatabase = Room.databaseBuilder(this, ContactListDatabase.class, "current_contact_list").build();
-        ArrayList<String> contactsDisplay = contactListDatabase.daoAccess().getAllContactsId();
-        ArrayList<ArrayList<String>> contactsReference = GeneralFunctions.getContactNames(this);
-        // FIXME FIXME
-        StringBuilder displayText = new StringBuilder(getString(R.string.current_placeholder));
-        TextView mainMenuBottomText = findViewById(R.id.mainMenuBottomButtonContent);
-        // Check name array with id to find name
-        for (int i=0; i< (contactsDisplay.size()-1); i++) {
-            for (int j=0; j < contactsReference.size(); j++) {
-                // Check if id is the same
-                if (Objects.equals(contactsReference.get(j).get(0), contactsDisplay.get(i))) {
-                    displayText.append(" ").append(contactsReference.get(j).get(1)).append(",");
-                    // Deletes element from array, makes searching faster
-                    contactsReference.remove(j);
-                    break;
+        // ****** UPDATE CONTACT LIST (WHOLE THING IS INSIDE A THREAD) ****** //
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                // Initialize id of contacts needed to be shown and reference array for id to name
+                ContactListDatabase contactListDatabase = Room.databaseBuilder(getApplicationContext(), ContactListDatabase.class, "current_contact_list").build();
+                List<String> contactsDisplay = contactListDatabase.daoAccess().getAllContactsId();
+                List<List<String>> contactsReference = GeneralFunctions.getContactNames(getApplicationContext());
+                StringBuilder displayText = new StringBuilder(getString(R.string.current_placeholder));
+                TextView mainMenuBottomText = findViewById(R.id.mainMenuBottomButtonContent);
+                // Check name array with id to find name
+                for (int i=0; i< (contactsDisplay.size()-1); i++) {
+                    for (int j=0; j < contactsReference.size(); j++) {
+                        // Check if id is the same
+                        if (Objects.equals(contactsReference.get(j).get(0), contactsDisplay.get(i))) {
+                            displayText.append(" ").append(contactsReference.get(j).get(1)).append(",");
+                            // Deletes element from array, makes searching faster
+                            contactsReference.remove(j);
+                            break;
+                        }
+                    }
                 }
+                // Set the last value of the name array to be without a comma
+                if (contactsDisplay.size() != 0) {
+                    displayText.append(" ").append(contactsDisplay.get(contactsDisplay.size() - 1));}
+                // Set title
+                mainMenuBottomText.setText(displayText.toString());
             }
-        }
-        // Set the last value of the name array to be without a comma
-        if (contactsDisplay.size() != 0) {
-            displayText.append(" ").append(contactsDisplay.get(contactsDisplay.size() - 1));}
-        // Set title
-        mainMenuBottomText.setText(displayText.toString());
+
+        });
 
     }
 

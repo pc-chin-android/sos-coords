@@ -10,31 +10,32 @@ import android.support.annotation.NonNull;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 
 class GeneralFunctions {
     // ****** Converters ****** //
 
     @TypeConverter
-    ArrayList<String> string_json_arraylist(String original) {
+    List<String> string_json_list(String original) {
         return null;
     }
 
     @TypeConverter
-    String arraylist_json_string(ArrayList<String> original) {
+    String list_json_string(ArrayList<String> original) {
         return null;
     }
 
     // ****** GENERAL CONTACT GETTERS ****** //
 
     // Get all names of all contacts in list form (sorted)
-    static ArrayList<ArrayList<String>> getContactNames(@NonNull Context context) {
+    static List<List<String>> getContactNames(@NonNull Context context) {
         ContentResolver cr = context.getContentResolver();
         Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI,
                 null, null, null, null);
-        ArrayList<ArrayList<String>> response = new ArrayList<>();
+        List<List<String>> response = new ArrayList<>();
         if ((cur != null ? cur.getCount() : 0) > 0) {
             while (cur.moveToNext()) {
-                ArrayList<String> temp = new ArrayList<>();
+                List<String> temp = new ArrayList<>();
                 // Add <id, name> to array
                 String id = cur.getString(
                         cur.getColumnIndex(ContactsContract.Contacts._ID));

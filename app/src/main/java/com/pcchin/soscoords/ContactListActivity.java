@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class ContactListActivity extends AppCompatActivity {
 
@@ -20,9 +20,8 @@ public class ContactListActivity extends AppCompatActivity {
 
         // TODO: Show Exit Popup
 
-        // FIXME FIXME
         // Initialize contact list input
-        ArrayList<ArrayList<String>> allContacts = GeneralFunctions.getContactNames(this);
+        List<List<String>> allContacts = GeneralFunctions.getContactNames(this);
         LinearLayout contactsDisplay = findViewById(R.id.contactlistbox);
         // Set each widget's height to wrap content and it's width to match parent
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
