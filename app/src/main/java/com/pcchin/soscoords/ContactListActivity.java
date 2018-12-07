@@ -18,8 +18,6 @@ public class ContactListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contactlist);
 
-        // TODO: Show Exit Popup
-
         // Initialize contact list input
         List<List<String>> allContacts = GeneralFunctions.getContactNames(this);
         LinearLayout contactsDisplay = findViewById(R.id.contactlistbox);

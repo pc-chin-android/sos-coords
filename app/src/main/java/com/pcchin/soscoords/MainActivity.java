@@ -1,4 +1,5 @@
 package com.pcchin.soscoords;
+// FIXME: FILES TO WORK ON - MainActivity, ContactListActivity, GeneralFunctions, ContactListDao
 // TODO: Start on background process
 
 import android.arch.persistence.room.Room;
@@ -134,6 +135,12 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+    }
+
+    // Show exit popup
+    @Override
+    public void onBackPressed() {
+        // TODO: Show exit popup
     }
 
     // Update the status of the checkboxes to their corresponding values
