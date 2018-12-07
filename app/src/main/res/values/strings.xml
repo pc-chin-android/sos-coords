@@ -37,4 +37,5 @@
     <!-- Contact List strings -->
     <string name="contact_list_left_button">&lt; Cancel</string>
     <string name="contact_list_right_button">Save &#38; Return &gt;</string>
+    <string name="contact_list_title">Select Contacts</string>
 </resources>

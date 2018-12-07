@@ -1,4 +1,5 @@
 package com.pcchin.soscoords;
+// TODO: Start on background process
 
 import android.content.Context;
 import android.content.Intent;
