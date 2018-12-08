@@ -88,50 +88,6 @@ public class MainActivity extends AppCompatActivity {
             CheckBox check2 = findViewById(R.id.mainMenuBottomCheck);
             check2.setChecked(true); // Convert int to bool
         }
-
-
-        // ****** UPDATE CODE ****** //
-        String currentCode = appKeys.getString(getString(R.string.secret_code_input), null);
-        TextView codeText = findViewById(R.id.mainMenuTopButtonContent);
-        // Check if default value exists
-        if (! Objects.equals(currentCode, null)) {
-            // Set values
-            String contents = getString(R.string.main_menu_top_button_content, currentCode);
-            codeText.setText(contents);
-        } else {
-            //Set default value
-            codeText.setText(R.string.current_placeholder);
-        }
-
-        // ****** UPDATE CONTACT LIST (WHOLE THING IS INSIDE A THREAD) ****** //
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                // Initialize id of contacts needed to be shown and reference array for id to name
-                ContactListDatabase contactListDatabase = Room.databaseBuilder(getApplicationContext(), ContactListDatabase.class, "current_contact_list").build();
-                List<String> contactsDisplay = contactListDatabase.daoAccess().getAllContactsId();
-                List<List<String>> contactsReference = GeneralFunctions.getContactNames(getApplicationContext());
-                StringBuilder displayText = new StringBuilder(getString(R.string.current_placeholder));
-                TextView mainMenuBottomText = findViewById(R.id.mainMenuBottomButtonContent);
-                // Check name array with id to find name
-                for (int i=0; i< contactsDisplay.size(); i++) {
-                    for (int j=0; j < contactsReference.size(); j++) {
-                        // Check if id is the same
-                        if (Objects.equals(contactsReference.get(j).get(0), contactsDisplay.get(i))) {
-                            displayText.append(" ").append(contactsReference.get(j).get(1)).append(",");
-                            break;
-                        }
-                    }
-                }
-                if (contactsDisplay.size() != 0) {
-                    // Removes last comma
-                    displayText.deleteCharAt(displayText.length() - 1);
-                }
-                mainMenuBottomText.setText(displayText);
-            }
-
-        }).start();
-
     }
 
     // Show exit popup
@@ -157,6 +113,61 @@ public class MainActivity extends AppCompatActivity {
                 appKeysEditor.putInt(getString(R.string.receive_checkbox_checked), checked2);
                 appKeysEditor.apply();
         }
+
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        // ****** UPDATE CODE ****** //
+        SharedPreferences appKeys = this.getSharedPreferences(getString(R.string.shared_pref_key), Context.MODE_PRIVATE);
+        String currentCode = appKeys.getString(getString(R.string.secret_code_input), null);
+        TextView codeText = findViewById(R.id.mainMenuTopButtonContent);
+        // Check if default value exists
+        if (! Objects.equals(currentCode, null)) {
+            // Set values
+            String contents = getString(R.string.main_menu_top_button_content, currentCode);
+            codeText.setText(contents);
+        } else {
+            //Set default value
+            codeText.setText(R.string.current_placeholder);
+        }
+
+        // ****** UPDATE CONTACT LIST (WHOLE THING IS INSIDE A THREAD) ****** //
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                // Initialize id of contacts needed to be shown and reference array for id to name
+                ContactListDatabase contactListDatabase = Room.databaseBuilder(getApplicationContext(), ContactListDatabase.class, "current_contact_list").build();
+                List<String> contactsDisplay = contactListDatabase.daoAccess().getAllContactsId();
+                List<List<String>> contactsReference = GeneralFunctions.getContactNames(getApplicationContext());
+                final StringBuilder displayText = new StringBuilder(getString(R.string.current_placeholder));
+                final TextView mainMenuBottomText = findViewById(R.id.mainMenuBottomButtonContent);
+                // Check name array with id to find name
+                for (int i=0; i< contactsDisplay.size(); i++) {
+                    for (int j=0; j < contactsReference.size(); j++) {
+                        // Check if id is the same
+                        if (Objects.equals(contactsReference.get(j).get(0), contactsDisplay.get(i))) {
+                            displayText.append(" ").append(contactsReference.get(j).get(1)).append(",");
+                            break;
+                        }
+                    }
+                }
+                if (contactsDisplay.size() != 0) {
+                    // Removes last comma
+                    displayText.deleteCharAt(displayText.length() - 1);
+                }
+                // Go back to main thread to display text
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        mainMenuBottomText.setText(displayText);
+                    }
+                });
+                contactListDatabase.close();
+            }
+
+        }).start();
 
     }
 }

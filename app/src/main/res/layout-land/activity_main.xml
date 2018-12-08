@@ -41,13 +41,19 @@
                 android:textSize="24sp"
                 tools:ignore="NestedWeights" />
 
-            <TextView
-                android:id="@+id/mainMenuTopButtonContent"
+            <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight=".4"
-                android:gravity="top|center"
-                android:textSize="18sp" />
+                android:layout_weight=".4">
+
+                <TextView
+                    android:id="@+id/mainMenuTopButtonContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="top|center"
+                    android:textSize="18sp" />
+            </ScrollView>
+
         </LinearLayout>
 
         <LinearLayout
@@ -71,13 +77,19 @@
                 android:textSize="24sp"
                 tools:ignore="NestedWeights" />
 
-            <TextView
-                android:id="@+id/mainMenuBottomButtonContent"
+            <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight=".4"
-                android:gravity="center"
-                android:textSize="18sp" />
+                android:layout_weight=".4">
+
+                <TextView
+                    android:id="@+id/mainMenuBottomButtonContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="18sp" />
+            </ScrollView>
+
         </LinearLayout>
 
     </LinearLayout>

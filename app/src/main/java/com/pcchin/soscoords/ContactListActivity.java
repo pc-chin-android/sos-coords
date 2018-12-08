@@ -1,16 +1,27 @@
 package com.pcchin.soscoords;
 
+import android.app.Dialog;
 import android.arch.persistence.room.Room;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 
 import com.pcchin.soscoords.contactlist.ContactListDatabase;
+import com.pcchin.soscoords.contactlist.ContactListEntity;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
@@ -41,7 +52,7 @@ public class ContactListActivity extends AppCompatActivity {
                         for (int i = 0; i < allContacts.size(); i++) {
                             // Initialize checkboxes
                             CheckBox currentContact = new CheckBox(getApplicationContext());
-                            currentContact.setTextSize(2,20);
+                            currentContact.setTextSize(2,22);
                             currentContact.setTextColor(-1); // White
                             // Change checkbox text for each contact
                             currentContact.setText(allContacts.get(i).get(1));
@@ -56,6 +67,7 @@ public class ContactListActivity extends AppCompatActivity {
                         }
                     }
                 });
+                contactListDatabase.close();
             }
         }).start();
 
@@ -77,9 +89,65 @@ public class ContactListActivity extends AppCompatActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO: Insert code to save current input
-                Intent switchLayout = new Intent(ContactListActivity.this, MainActivity.class);
-                startActivity(switchLayout);
+                // Store data to database
+                new Thread(new Runnable() {
+                    @SuppressWarnings("unchecked")
+                    @Override
+                    public void run() {
+                        // Get database stuff
+                        ContactListDatabase contactListDatabase = Room.databaseBuilder(getApplicationContext(), ContactListDatabase.class, "current_contact_list").build();
+                        List<List<String>> allContactNames = GeneralFunctions.getContactNames(getApplicationContext());
+                        HashMap allContactNumbers = GeneralFunctions.getContactNumbers(getApplicationContext());
+
+                        List<String> SavedIds = new ArrayList<>();
+                        LinearLayout checkboxParent = findViewById(R.id.contactlistbox);
+                        // Check which checkboxes are checked
+                        for (int i=0; i < checkboxParent.getChildCount(); i++) {
+                            View currentChild = checkboxParent.getChildAt(i);
+                            if (((CheckBox) currentChild).isChecked()) {
+                                // Add id to list that needs to be stored
+                                SavedIds.add(allContactNames.get(i).get(0));
+                            }
+                        }
+                        // Clear database
+                        contactListDatabase.daoAccess().nukeAllContacts();
+                        for (int i=0; i < SavedIds.size(); i++) {
+                            // Add new contacts to database with data from SavedIds
+                            ContactListEntity currentContact = new ContactListEntity();
+                            String currentKey = SavedIds.get(i);
+                            currentContact.setContactId(currentKey);
+                            List<String> currentContactNum = (List<String>)allContactNumbers.get(currentKey);
+                            StringBuilder currentContactNumString = new StringBuilder();
+                            // Prevent null pointer exception
+                            if (currentContactNum != null) {
+                                for (int j = 0; j < currentContactNum.size(); i++) {
+                                    currentContactNumString.append(currentContactNum.get(j)).append(", ");
+                                }
+                                // Remove last comma
+                                if (currentContactNum.size() != 0) {
+                                    currentContactNumString.deleteCharAt(currentContactNumString.length() - 1);
+                                    currentContactNumString.deleteCharAt(currentContactNumString.length() - 1);
+                                }
+                                // Update values to database
+                                currentContact.setContactNumList(currentContactNumString.toString());
+                                contactListDatabase.daoAccess().insertContact(currentContact);
+                            }
+                        }
+                        contactListDatabase.close();
+                        Intent switchLayout = new Intent(ContactListActivity.this, MainActivity.class);
+                        startActivity(switchLayout);
+                    }
+                }).start();
+                // Disable user input
+                Button cancelButton = findViewById(R.id.contactListLeftButton);
+                cancelButton.setEnabled(false);
+                Button saveButton = findViewById(R.id.contactListRightButton);
+                saveButton.setEnabled(false);
+                // Show spinner
+                Dialog loadingDialog = new Dialog(ContactListActivity.this);
+                loadingDialog.setContentView(R.layout.popup_loading);
+                Objects.requireNonNull(loadingDialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                loadingDialog.show();
             }
         });
     }

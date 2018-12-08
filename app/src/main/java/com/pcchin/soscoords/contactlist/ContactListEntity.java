@@ -9,10 +9,18 @@ import android.support.annotation.NonNull;
 public class ContactListEntity {
     @NonNull
     @PrimaryKey
-    public String ContactId;
+    private String ContactId;
 
-    public String ContactNumList;
+    private String ContactNumList;
 
     public ContactListEntity() {}
+
+    public String getContactId() {return ContactId;}
+
+    public String getContactNumList() {return ContactNumList;}
+
+    public void setContactId(String ContactId) {this.ContactId = ContactId;}
+
+    public void setContactNumList(String ContactNumList) {this.ContactNumList = ContactNumList;}
 
 }

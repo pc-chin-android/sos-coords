@@ -1,6 +1,5 @@
 package com.pcchin.soscoords;
 
-import android.arch.persistence.room.TypeConverter;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;

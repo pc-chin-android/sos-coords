@@ -3,6 +3,7 @@
     <string name="current_placeholder">Current: </string>
     <string name="shared_pref_key">com.pcchin.soscoords.shared_pref_key</string>
     <string name="blank" />
+    <string name="loading_popup_text">Loading...</string>
 
     <!-- Shared preferences keys -->
     <string name="send_checkbox_checked">send_checkbox_checked</string>
