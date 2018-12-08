@@ -9,7 +9,7 @@ import java.util.List;
 @Dao
 public interface ContactListDao {
     @Query("SELECT ContactNumList FROM ContactListEntity WHERE ContactId LIKE :ContactId LIMIT 1")
-    String getContactNum(String ContactId); // String contains JSON Array
+    String getContactNum(String ContactId); // String contains Array
 
     @Query("SELECT * FROM ContactListEntity")
     List<ContactListEntity> getAllContacts();
@@ -18,7 +18,7 @@ public interface ContactListDao {
     List<String> getAllContactsId();
 
     @Query("SELECT ContactNumList FROM ContactListEntity")
-    List<String> getAllContactsNum(); // String contains JSON Array
+    List<String> getAllContactsNum(); // String contains Array
 
     @Insert
     void insertContact(ContactListEntity contact);

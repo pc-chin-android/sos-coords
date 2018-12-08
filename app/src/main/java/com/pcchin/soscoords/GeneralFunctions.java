@@ -13,18 +13,6 @@ import java.util.HashMap;
 import java.util.List;
 
 class GeneralFunctions {
-    // ****** Converters ****** //
-
-    @TypeConverter
-    List<String> string_json_list(String original) {
-        return null;
-    }
-
-    @TypeConverter
-    String list_json_string(ArrayList<String> original) {
-        return null;
-    }
-
     // ****** GENERAL CONTACT GETTERS ****** //
 
     // Get all names of all contacts in list form (sorted)
@@ -59,8 +47,8 @@ class GeneralFunctions {
         ContentResolver cr = context.getContentResolver();
         Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI,
                 null, null, null, null);
-        HashMap <String, ArrayList<String>> response = new HashMap<>();
-        ArrayList<String> temp = new ArrayList<>();
+        HashMap <String, List<String>> response = new HashMap<>();
+        List<String> temp = new ArrayList<>();
 
         if ((cur != null ? cur.getCount() : 0) > 0) {
             while (cur.moveToNext()) {

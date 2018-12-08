@@ -15,9 +15,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22d8a39c-f012-493d-bdb5-cc444f142a61" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileContent/fileContent.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Studio.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Studio.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/pcchin/soscoords/ContactListActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/pcchin/soscoords/ContactListActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/pcchin/soscoords/GeneralFunctions.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/pcchin/soscoords/GeneralFunctions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/pcchin/soscoords/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/pcchin/soscoords/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/pcchin/soscoords/contactlist/ContactListDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/pcchin/soscoords/contactlist/ContactListDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/pcchin/soscoords/contactlist/ContactListDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/pcchin/soscoords/contactlist/ContactListDatabase.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -40,53 +55,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pcchin/soscoords/MainActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="96" selection-start-line="1" selection-start-column="96" selection-end-line="1" selection-end-column="96" />
-              <folding>
-                <element signature="e#4995#5034#0" expanded="true" />
-                <element signature="method#updateCheckboxDatabase#0;class#MainActivity#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ContactListActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ContactListActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pcchin/soscoords/ContactListActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="33" column="15" selection-start-line="33" selection-start-column="15" selection-end-line="33" selection-end-column="15" />
+            <state relative-caret-position="132">
+              <caret line="43" column="56" selection-start-line="43" selection-start-column="56" selection-end-line="43" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#742#2593#0" expanded="true" />
+                <element signature="e#1148#2852#0" expanded="true" />
+                <element signature="e#2851#2852#0" expanded="true" />
+                <element signature="e#2592#2593#0" expanded="true" />
+                <element signature="e#2815#3075#0" expanded="true" />
+                <element signature="e#3074#3075#0" expanded="true" />
+                <element signature="e#3225#3544#0" expanded="true" />
+                <element signature="e#3543#3544#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GeneralFunctions.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pcchin/soscoords/GeneralFunctions.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="30" column="72" selection-start-line="30" selection-start-column="72" selection-end-line="30" selection-end-column="72" />
-              <folding>
-                <element signature="e#219#220#0" expanded="true" />
-                <element signature="e#235#236#0" expanded="true" />
-                <element signature="e#333#334#0" expanded="true" />
-                <element signature="e#360#361#0" expanded="true" />
-                <element signature="method#getContactNames#0;class#GeneralFunctions#0" />
-                <element signature="method#getContactNumbers#0;class#GeneralFunctions#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ContactListDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pcchin/soscoords/contactlist/ContactListDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
             </state>
           </provider>
         </entry>
@@ -111,6 +95,7 @@
       <find>getPreferences</find>
       <find>ArrayList</find>
       <find>List</find>
+      <find>ContactListDatabase</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -2416,7 +2401,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/anim/slide_out_right.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout-land/activity_about.xml" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pcchin/soscoords/CheckboxDao.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pcchin/soscoords/CheckboxStates.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pcchin/soscoords/ActiveContactList.java" />
@@ -2434,14 +2418,15 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout-land/activity_codeinput.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_contactlist.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/pcchin/soscoords/contactlist/ContactListDatabase.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pcchin/soscoords/Conversion.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pcchin/soscoords/NameComparator.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/pcchin/soscoords/contactlist/ContactListDao.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/pcchin/soscoords/GeneralFunctions.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pcchin/soscoords/contactlist/ContactListEntity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/pcchin/soscoords/ContactListActivity.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/pcchin/soscoords/GeneralFunctions.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/pcchin/soscoords/contactlist/ContactListDao.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pcchin/soscoords/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/pcchin/soscoords/contactlist/ContactListDatabase.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/pcchin/soscoords/ContactListActivity.java" />
       </list>
     </option>
   </component>
@@ -2459,18 +2444,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Studio" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Studio" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -2489,23 +2462,17 @@
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="soscoords" type="cbb59c9e:AndroidPsiDirectoryNode" />
             </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
             <path>
-              <item name="Studio" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="soscoords" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="contactlist" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Studio" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-            </path>
-            <path>
-              <item name="Studio" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
+              <item name="Studio" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Studio" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -2788,7 +2755,14 @@
       <option name="project" value="LOCAL" />
       <updated>1544204030300</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Main Menu display saved contacts now works">
+      <created>1544204427122</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1544204427122</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2805,15 +2779,14 @@
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="Android Profiler" order="7" />
-      <window_info active="true" anchor="bottom" id="TODO" order="6" sideWeight="0.49848714" visible="true" weight="0.32838285" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49848714" weight="0.32838285" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Build Variants" order="2" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5015129" side_tool="true" weight="0.32838285" />
-      <window_info anchor="right" id="Preview" order="4" weight="0.2322239" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32838285" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49848714" weight="0.32838285" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49848714" visible="true" weight="0.32838285" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32838285" />
       <window_info anchor="bottom" id="Logcat" order="10" weight="0.32838285" />
       <window_info id="Captures" order="2" weight="0.25" />
@@ -2829,6 +2802,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Preview" order="4" weight="0.2322239" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -2911,11 +2885,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/libraries/Gradle____local_aars___C__Users_ChinPC_Desktop_Coding_Java_SosCoords_Studio_app_libs_exp4j_0_4_8_jar_unspecified_jar.xml" />
     <entry file="file://$PROJECT_DIR$/.idea/caches/build_file_checksums.ser">
       <provider selected="true" editor-type-id="text-editor">
@@ -2987,13 +2956,6 @@
       </provider>
       <provider selected="true" editor-type-id="android-designer2">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="70" lean-forward="true" selection-start-line="32" selection-start-column="70" selection-end-line="32" selection-end-column="70" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pcchin/soscoords/Checkbox/MovieDatabase.java" />
@@ -3144,54 +3106,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pcchin/soscoords/contactlist/ContactListDatabase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="64" lean-forward="true" selection-start-line="6" selection-start-column="64" selection-end-line="6" selection-end-column="64" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pcchin/soscoords/contactlist/ContactListEntity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="7" column="7" lean-forward="true" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="32" column="70" selection-start-line="32" selection-start-column="70" selection-end-line="32" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pcchin/soscoords/GeneralFunctions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#181#218#0" />
-            <element signature="e#226#234#0" />
+            <element signature="method#getContactNumbers#0;class#GeneralFunctions#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pcchin/soscoords/contactlist/ContactListDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pcchin/soscoords/GeneralFunctions.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
-          <caret line="30" column="72" selection-start-line="30" selection-start-column="72" selection-end-line="30" selection-end-column="72" />
+          <caret line="20" column="62" selection-start-line="20" selection-start-column="62" selection-end-line="20" selection-end-column="62" />
           <folding>
-            <element signature="e#219#220#0" expanded="true" />
-            <element signature="e#235#236#0" expanded="true" />
-            <element signature="e#333#334#0" expanded="true" />
-            <element signature="e#360#361#0" expanded="true" />
-            <element signature="method#getContactNames#0;class#GeneralFunctions#0" />
-            <element signature="method#getContactNumbers#0;class#GeneralFunctions#0" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pcchin/soscoords/ContactListActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pcchin/soscoords/contactlist/ContactListDatabase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" column="15" selection-start-line="33" selection-start-column="15" selection-end-line="33" selection-end-column="15" />
+        <state relative-caret-position="85">
+          <caret line="5" column="77" selection-start-line="5" selection-start-column="77" selection-end-line="5" selection-end-column="77" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -3200,11 +3157,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pcchin/soscoords/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="96" selection-start-line="1" selection-start-column="96" selection-end-line="1" selection-end-column="96" />
+        <state relative-caret-position="158">
+          <caret line="139" column="32" lean-forward="true" selection-start-line="139" selection-start-column="32" selection-end-line="139" selection-end-column="32" />
           <folding>
+            <element signature="e#848#883#0" expanded="true" />
+            <element signature="e#1180#1433#0" expanded="true" />
+            <element signature="e#1432#1433#0" expanded="true" />
+            <element signature="e#1618#1878#0" expanded="true" />
+            <element signature="e#1877#1878#0" expanded="true" />
+            <element signature="e#2044#2298#0" expanded="true" />
+            <element signature="e#2297#2298#0" expanded="true" />
+            <element signature="e#2446#2487#0" expanded="true" />
+            <element signature="e#2523#2564#0" expanded="true" />
+            <element signature="e#2797#2838#0" expanded="true" />
+            <element signature="e#3119#3163#0" expanded="true" />
+            <element signature="e#3199#3243#0" expanded="true" />
+            <element signature="e#3482#3526#0" expanded="true" />
+            <element signature="e#3796#3833#0" expanded="true" />
+            <element signature="e#4063#4124#0" expanded="true" />
+            <element signature="e#4244#4272#0" expanded="true" />
+            <element signature="e#4386#5947#0" expanded="true" />
             <element signature="e#4995#5034#0" expanded="true" />
+            <element signature="e#5946#5947#0" expanded="true" />
             <element signature="method#updateCheckboxDatabase#0;class#MainActivity#0" />
+            <element signature="e#6530#6565#0" expanded="true" />
+            <element signature="e#6917#6958#0" expanded="true" />
+            <element signature="e#7246#7290#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pcchin/soscoords/ContactListActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="43" column="56" selection-start-line="43" selection-start-column="56" selection-end-line="43" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#742#2593#0" expanded="true" />
+            <element signature="e#1148#2852#0" expanded="true" />
+            <element signature="e#2851#2852#0" expanded="true" />
+            <element signature="e#2592#2593#0" expanded="true" />
+            <element signature="e#2815#3075#0" expanded="true" />
+            <element signature="e#3074#3075#0" expanded="true" />
+            <element signature="e#3225#3544#0" expanded="true" />
+            <element signature="e#3543#3544#0" expanded="true" />
           </folding>
         </state>
       </provider>

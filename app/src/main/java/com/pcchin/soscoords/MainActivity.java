@@ -1,5 +1,4 @@
 package com.pcchin.soscoords;
-// FIXME: FILES TO WORK ON - MainActivity, ContactListActivity, GeneralFunctions, ContactListDao
 // TODO: Start on background process
 
 import android.arch.persistence.room.Room;
@@ -115,25 +114,23 @@ public class MainActivity extends AppCompatActivity {
                 StringBuilder displayText = new StringBuilder(getString(R.string.current_placeholder));
                 TextView mainMenuBottomText = findViewById(R.id.mainMenuBottomButtonContent);
                 // Check name array with id to find name
-                for (int i=0; i< (contactsDisplay.size()-1); i++) {
+                for (int i=0; i< contactsDisplay.size(); i++) {
                     for (int j=0; j < contactsReference.size(); j++) {
                         // Check if id is the same
                         if (Objects.equals(contactsReference.get(j).get(0), contactsDisplay.get(i))) {
                             displayText.append(" ").append(contactsReference.get(j).get(1)).append(",");
-                            // Deletes element from array, makes searching faster
-                            contactsReference.remove(j);
                             break;
                         }
                     }
                 }
-                // Set the last value of the name array to be without a comma
                 if (contactsDisplay.size() != 0) {
-                    displayText.append(" ").append(contactsDisplay.get(contactsDisplay.size() - 1));}
-                // Set title
-                mainMenuBottomText.setText(displayText.toString());
+                    // Removes last comma
+                    displayText.deleteCharAt(displayText.length() - 1);
+                }
+                mainMenuBottomText.setText(displayText);
             }
 
-        });
+        }).start();
 
     }
 
