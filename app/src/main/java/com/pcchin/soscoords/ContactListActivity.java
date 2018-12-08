@@ -116,7 +116,7 @@ public class ContactListActivity extends AppCompatActivity {
                             // Prevent null pointer exception
                             if (currentContactNum != null) {
                                 for (int j = 0; j < currentContactNum.size(); i++) {
-                                    currentContactNumString.append(currentContactNum.get(j)).append(", ");
+                                    currentContactNumString.append(currentContactNum.get(j)).append("; ");
                                 }
                                 // Remove last comma
                                 if (currentContactNum.size() != 0) {

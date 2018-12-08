@@ -3,8 +3,10 @@ package com.pcchin.soscoords;
 
 import android.arch.persistence.room.Room;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -93,7 +95,27 @@ public class MainActivity extends AppCompatActivity {
     // Show exit popup
     @Override
     public void onBackPressed() {
-        // TODO: Show exit popup
+        AlertDialog.Builder exitAlertBuilder = new AlertDialog.Builder(this, R.style.Theme_AppCompat_Dialog_Alert);
+        exitAlertBuilder.setTitle(R.string.exit_popup_title);
+        exitAlertBuilder.setMessage(getString(R.string.exit_popup_message));
+        // Bind quit button
+        exitAlertBuilder.setPositiveButton(getString(R.string.exit_popup_right_button),
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface exitPopup, int which) {
+                        finish();
+                        System.exit(0);
+                    }
+                });
+        exitAlertBuilder.setNegativeButton(getString(R.string.exit_popup_left_button),
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface exitPopup, int which) {
+                        exitPopup.dismiss();
+                    }
+                });
+        AlertDialog exitAlert = exitAlertBuilder.create();
+        exitAlert.show();
     }
 
     // Update the status of the checkboxes to their corresponding values
