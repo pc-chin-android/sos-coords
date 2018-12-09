@@ -1,5 +1,4 @@
 package com.pcchin.soscoords;
-// TODO: Start on background process
 
 import android.arch.persistence.room.Room;
 import android.content.Context;
@@ -25,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // TODO: Start background process if not started
 
         // Import checkbox and code status
         SharedPreferences appKeys = this.getSharedPreferences(getString(R.string.shared_pref_key), Context.MODE_PRIVATE);

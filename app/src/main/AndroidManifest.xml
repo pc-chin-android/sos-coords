@@ -43,6 +43,11 @@
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
+
+        <service
+            android:name=".BackgroundSmsMonitor"
+            android:description="@string/service_description"
+            android:exported="false" />
     </application>
 
 </manifest>

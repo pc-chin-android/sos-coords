@@ -27,6 +27,7 @@
         &#xA;&#xD; &#xA;&#xD; By sending a specific code to a specific person or vice versa,
         that person would be able to receive your current GPS coordinates.
     </string>
+    <string name="service_description">Background process of SosCoords. It checks new messages for the secret code.</string>
 
     <!-- Code Input strings -->
     <string name="code_menu_left_button">&lt; Cancel</string>
