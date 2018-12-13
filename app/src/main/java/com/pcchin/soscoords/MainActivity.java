@@ -136,7 +136,6 @@ public class MainActivity extends AppCompatActivity {
                 appKeysEditor.putInt(getString(R.string.receive_checkbox_checked), checked2);
                 appKeysEditor.apply();
         }
-
     }
 
     @Override
@@ -191,6 +190,8 @@ public class MainActivity extends AppCompatActivity {
             }
 
         }).start();
+        // TODO: Temp fix
+        new SmsListener();
 
     }
 }
