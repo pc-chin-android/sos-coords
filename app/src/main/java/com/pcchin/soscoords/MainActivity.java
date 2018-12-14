@@ -18,14 +18,15 @@ import com.pcchin.soscoords.contactlist.ContactListDatabase;
 import java.util.List;
 import java.util.Objects;
 
+import androidx.work.OneTimeWorkRequest;
+import androidx.work.WorkManager;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        // TODO: Start background process if not started
 
         // Import checkbox and code status
         SharedPreferences appKeys = this.getSharedPreferences(getString(R.string.shared_pref_key), Context.MODE_PRIVATE);
@@ -190,8 +191,10 @@ public class MainActivity extends AppCompatActivity {
             }
 
         }).start();
-        // TODO: Temp fix
-        new SmsListener();
+
+        // Start work
+        OneTimeWorkRequest serviceWork = new OneTimeWorkRequest.Builder(MonitorWorker.class).build();
+        WorkManager.getInstance().enqueue(serviceWork);
 
     }
 }

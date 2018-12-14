@@ -14,7 +14,6 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.telephony.SmsManager;
 import android.telephony.SmsMessage;
-import android.widget.Toast;
 
 import com.pcchin.soscoords.contactlist.ContactListDatabase;
 
@@ -25,12 +24,15 @@ import java.util.Objects;
 
 public class SmsListener extends BroadcastReceiver {
     // Copied from https://github.com/KAPLANDROID/SmsForwarderForAndroid
+    // Combined with https://stackoverflow.com/questions/1973071/broadcastreceiver-sms-received
     Context mContext;
 
     @Override
     public void onReceive(final Context context, Intent intent) {
+
         mContext = context;
         if (Objects.equals(intent.getAction(), "android.provider.Telephony.SMS_RECEIVED")) {
+            // ****** DON'T MODIFY STARTING HERE ****** //
             Bundle bundle = intent.getExtras(); // ---get the SMS message
             // passed
             // in---
@@ -39,6 +41,7 @@ public class SmsListener extends BroadcastReceiver {
             if (bundle != null) {
                 // ---retrieve the SMS message received---
                 try {
+
                     Object[] pdus = (Object[]) bundle.get("pdus");
                     assert pdus != null;
                     msgs = new SmsMessage[pdus.length];
@@ -54,6 +57,7 @@ public class SmsListener extends BroadcastReceiver {
                         message.append(msgBody);
 
                     }
+                    // ****** DON'T MODIFY ENDING HERE ****** //
 
                     // Check sender matches saved number
                     List<String> savedContactList = updateNumberList();
@@ -70,7 +74,6 @@ public class SmsListener extends BroadcastReceiver {
                             }
                             SmsManager smsManager = SmsManager.getDefault();
                             smsManager.sendTextMessage(msg_from, null, response, null, null);
-                            Toast.makeText(mContext, "Message Sent", Toast.LENGTH_SHORT).show();
                             break;
                         }
                     }
@@ -107,9 +110,7 @@ public class SmsListener extends BroadcastReceiver {
         Location locationGPS = null;
         Location locationNet = null;
         LocationManager mLocationManager = (LocationManager)mContext.getSystemService(Context.LOCATION_SERVICE);
-        if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(mContext.getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            Toast.makeText(mContext, "GPS permission is not enabled. Please enable in Settings and try again.", Toast.LENGTH_LONG).show();
-        } else {
+        if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(mContext.getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             locationGPS = mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
             locationNet = mLocationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
         }

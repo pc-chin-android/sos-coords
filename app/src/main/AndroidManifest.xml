@@ -47,7 +47,7 @@
         </activity>
 
         <service
-            android:name=".BackgroundSmsMonitor"
+            android:name=".MonitorService"
             android:description="@string/service_description"
             android:exported="false" />
     </application>
