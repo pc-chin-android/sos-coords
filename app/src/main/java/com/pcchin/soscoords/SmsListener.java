@@ -1,7 +1,7 @@
 package com.pcchin.soscoords;
 
 import android.Manifest;
-import android.arch.persistence.room.Room;
+import androidx.room.Room;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -10,10 +10,11 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 import android.telephony.SmsManager;
 import android.telephony.SmsMessage;
+import android.util.Log;
 
 import com.pcchin.soscoords.contactlist.ContactListDatabase;
 
@@ -28,10 +29,11 @@ public class SmsListener extends BroadcastReceiver {
     Context mContext;
 
     @Override
-    public void onReceive(final Context context, Intent intent) {
-
+    public void onReceive(Context context, Intent intent) {
+        Log.d("Testing", "SmsListener triggered");
         mContext = context;
         if (Objects.equals(intent.getAction(), "android.provider.Telephony.SMS_RECEIVED")) {
+            Log.d("Testing", "SmsListener started");
             // ****** DON'T MODIFY STARTING HERE ****** //
             Bundle bundle = intent.getExtras(); // ---get the SMS message
             // passed
@@ -59,6 +61,10 @@ public class SmsListener extends BroadcastReceiver {
                     }
                     // ****** DON'T MODIFY ENDING HERE ****** //
 
+                    Log.d("Testing", "Sender below");
+                    Log.d("Testing", msg_from);
+                    Log.d("Testing", "Message below");
+                    Log.d("Testing", message.toString());
                     // Check sender matches saved number
                     List<String> savedContactList = updateNumberList();
                     SharedPreferences appKeys = mContext.getSharedPreferences("com.pcchin.soscoords.shared_pref_key", Context.MODE_PRIVATE);

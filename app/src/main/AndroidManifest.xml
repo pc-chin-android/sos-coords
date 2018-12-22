@@ -12,6 +12,7 @@
     <uses-permission android:name="android.permission.WRITE_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-feature android:name="android.hardware.location.gps" />
+    <uses-feature android:name="android.hardware.telephony" />
 
     <application
         android:allowBackup="true"
@@ -46,10 +47,22 @@
             </intent-filter>
         </activity>
 
-        <service
-            android:name=".MonitorService"
-            android:description="@string/service_description"
-            android:exported="false" />
+        <receiver android:name="com.pcchin.soscoords.SmsListener"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.BROADCAST_SMS">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+                <action android:name="android.provider.Telephony.SMS_DELIVER"/>
+                <action android:name="android.intent.action.SENDTO" />
+                <category android:name="android.intent.category.APP_MESSAGING" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="sms" />
+                <data android:scheme="smsto" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".SmsMonitorService" />
     </application>
 
 </manifest>

@@ -1,32 +1,39 @@
 package com.pcchin.soscoords;
 
-import android.arch.persistence.room.Room;
+import android.Manifest;
+import androidx.room.Room;
+
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.pcchin.soscoords.contactlist.ContactListDatabase;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import androidx.work.OneTimeWorkRequest;
-import androidx.work.WorkManager;
-
 public class MainActivity extends AppCompatActivity {
+
+    String[] permissionList = new String[] {Manifest.permission.READ_SMS, Manifest.permission.SEND_SMS, Manifest.permission.READ_CONTACTS, Manifest.permission.ACCESS_COARSE_LOCATION};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         // Import checkbox and code status
         SharedPreferences appKeys = this.getSharedPreferences(getString(R.string.shared_pref_key), Context.MODE_PRIVATE);
@@ -105,7 +112,8 @@ public class MainActivity extends AppCompatActivity {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface exitPopup, int which) {
-                        finish();
+                        moveTaskToBack(true);
+                        android.os.Process.killProcess(android.os.Process.myPid());
                         System.exit(0);
                     }
                 });
@@ -142,6 +150,21 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onResume(){
         super.onResume();
+
+        // Receive permission to read SMS
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            List<String> checkPermissionList = new ArrayList<>();
+            for (String permission : permissionList) {
+                if (this.checkSelfPermission(permission) != PackageManager.PERMISSION_GRANTED) {
+                    checkPermissionList.add(permission);
+                }
+            }
+            String[] checkPermissionListArray = new String[checkPermissionList.size()];
+            if (checkPermissionListArray.length != 0) {
+                requestPermissions(checkPermissionList.toArray(checkPermissionListArray), 100);
+            }
+        }
+
         // ****** UPDATE CODE ****** //
         SharedPreferences appKeys = this.getSharedPreferences(getString(R.string.shared_pref_key), Context.MODE_PRIVATE);
         String currentCode = appKeys.getString(getString(R.string.secret_code_input), null);
@@ -156,45 +179,62 @@ public class MainActivity extends AppCompatActivity {
             codeText.setText(R.string.current_placeholder);
         }
 
-        // ****** UPDATE CONTACT LIST (WHOLE THING IS INSIDE A THREAD) ****** //
+        // ****** UPDATE CONTACT LIST (WHOLE THING IS INSIDE A THREAD + TRY LOOP) ****** //
         new Thread(new Runnable() {
             @Override
             public void run() {
-                // Initialize id of contacts needed to be shown and reference array for id to name
-                ContactListDatabase contactListDatabase = Room.databaseBuilder(getApplicationContext(), ContactListDatabase.class, "current_contact_list").build();
-                List<String> contactsDisplay = contactListDatabase.daoAccess().getAllContactsId();
-                List<List<String>> contactsReference = GeneralFunctions.getContactNames(getApplicationContext());
-                final StringBuilder displayText = new StringBuilder(getString(R.string.current_placeholder));
-                final TextView mainMenuBottomText = findViewById(R.id.mainMenuBottomButtonContent);
-                // Check name array with id to find name
-                for (int i=0; i< contactsDisplay.size(); i++) {
-                    for (int j=0; j < contactsReference.size(); j++) {
-                        // Check if id is the same
-                        if (Objects.equals(contactsReference.get(j).get(0), contactsDisplay.get(i))) {
-                            displayText.append(" ").append(contactsReference.get(j).get(1)).append(",");
-                            break;
+                try {
+                    // Initialize id of contacts needed to be shown and reference array for id to name
+                    ContactListDatabase contactListDatabase = Room.databaseBuilder(getApplicationContext(), ContactListDatabase.class, "current_contact_list").build();
+                    List<String> contactsDisplay = contactListDatabase.daoAccess().getAllContactsId();
+                    List<List<String>> contactsReference = GeneralFunctions.getContactNames(getApplicationContext());
+                    final StringBuilder displayText = new StringBuilder(getString(R.string.current_placeholder));
+                    final TextView mainMenuBottomText = findViewById(R.id.mainMenuBottomButtonContent);
+                    // Check name array with id to find name
+                    for (int i = 0; i < contactsDisplay.size(); i++) {
+                        for (int j = 0; j < contactsReference.size(); j++) {
+                            // Check if id is the same
+                            if (Objects.equals(contactsReference.get(j).get(0), contactsDisplay.get(i))) {
+                                displayText.append(" ").append(contactsReference.get(j).get(1)).append(",");
+                                break;
+                            }
                         }
                     }
-                }
-                if (contactsDisplay.size() != 0) {
-                    // Removes last comma
-                    displayText.deleteCharAt(displayText.length() - 1);
-                }
-                // Go back to main thread to display text
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        mainMenuBottomText.setText(displayText);
+                    if (contactsDisplay.size() != 0) {
+                        // Removes last comma
+                        displayText.deleteCharAt(displayText.length() - 1);
                     }
-                });
-                contactListDatabase.close();
+                    // Go back to main thread to display text
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            mainMenuBottomText.setText(displayText);
+                        }
+                    });
+                    contactListDatabase.close();
+                } catch (Exception e) {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            TextView mainMenuBottomText = findViewById(R.id.mainMenuBottomButtonContent);
+                            mainMenuBottomText.setText(R.string.current_placeholder);
+                        }
+                    });
+                }
             }
 
         }).start();
 
-        // Start work
-        OneTimeWorkRequest serviceWork = new OneTimeWorkRequest.Builder(MonitorWorker.class).build();
-        WorkManager.getInstance().enqueue(serviceWork);
+        Intent intent = new Intent(this, SmsMonitorService.class);
+        intent.setAction("START");
+        startService(intent);
+    }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        if (grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(this, "This permission needs to be granted for the app to function properly. Please try again.", Toast.LENGTH_LONG).show();
+        }
     }
 }
